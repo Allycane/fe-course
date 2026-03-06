@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign-up</title>
+    </head>
+    <body>
+        <header>
+            <h1>회원가입</h1>
+        </header>
+        <main>
+            <form action="#" method="get">
+                <section>
+                    <fieldset>
+                        <legend>필수항목</legend>
+                        <!-- <h3>필수항목</h3> -->
+                        <article> <!-- 아이디 -->
+                            <label for="id">아이디</label>
+                            <input type="text" name="id">
+                        </article>
+                        <article> <!-- 비밀번호 -->
+                            <label for="password"></label>
+                            <input type="password" name="password">
+                        </article>
+                        <article> <!-- 이메일 -->
+                            <label for="email">이메일</label>
+                            <input type="text" name="email" placeholder="example@example.com">
+                        </article>
+                        <article> <!-- 성명 -->
+                            <label for="name">성명</label>
+                            <input type="text" name="name" placeholder="홍길동">
+                        </article>
+                        <article> <!-- 나이 -->
+                            <label for="age">나이</label>
+                            <input type="text" name="age">
+                        </article>
+                    </fieldset>
+                </section>
+                <section>
+                    <fieldset>
+                        <legend>당신에 대해서 알고 싶어요!</legend>
+                        <!-- <h3>당신에 대해서 알고 싶어요!</h3> -->
+                        <article> <!-- 취미 선택-->
+                            <label for="hobby">취미를 선택해 주세요</label> <br>
+                            <input type="radio" name="hobby"><span>게임하기</span>
+                            <input type="radio" name="hobby"><span>음악듣기</span>
+                            <input type="radio" name="hobby"><span>아이스음료 마시기</span>
+                        </article>
+                        <article> <!-- 음료 선택 -->
+                            <label for="drink">좋아하는 음료를 선택해 주세요. (중복선택가능)</label> <br>
+                            <input type="checkbox" name="drink"><span>쉐이크 종류 음료</span>
+                            <input type="checkbox" name="drink"><span>티 종류 음료</span>
+                            <input type="checkbox" name="drink"><span>커피 종류 음료</span>
+                        </article>
+                        <article> <!-- 날짜 선택 -->
+                            <label for="date">동아리 참석 가능 날짜</label>
+                            <input type="date" name="date">
+                        </article>
+                        <article> <!-- 모임 선택 -->
+                            <label for="group">얼.죽.아에서 참여하고 싶은 모임은?</label>
+                            <select name="group">
+                                <option value="선택">--선택해주세요--</option>
+                                <option value="아메리카노">아메리카노</option>
+                                <option value="카페라떼">카페라떼</option>
+                                <option value="루이보스티">루이보스티</option>
+                                <option value="블루베리스무디">블루베리스무디</option>
+                            </select>
+                        </article>
+                        <article> <!-- 포트폴리오 업로드 -->
+                            <label for="portfolio">포트폴리오 제출하기</label> <br>
+                            <input type="file" name="portfolio">
+                        </article>
+                        <article> <!-- 하고 싶은 말 -->
+                            <label for="opinion">마지막으로 하고 싶은 말은?</label> <br>
+                            <textarea name="opinion" cols="50" rows="10"></textarea>
+                        </article>
+                    </fieldset>
+                </section>
+                <section>
+                    <button type="reset">다시하기</button>
+                    <button type="submit">제출하기</button>
+                </section>
+            </form>
+        </main>
+        <footer></footer>
+    </body>
+</html>

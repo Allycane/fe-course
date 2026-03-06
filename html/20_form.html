@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign-in Form</title>
+        <style>
+            ul {
+                list-style-type: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>회원가입 폼</h1>
+        <a href="#field2">기타항목 이동</a>
+        <form action="#" method="get">
+        <!-- GET : 서버에 데이터 전송 방식으로 URL을 사용함 -->
+            <ul>
+                <fieldset>
+                    <legend>개인정보</legend>
+                <li>
+                    <label for="id">아이디</label>
+                    <input type="text" name="id">
+                </li>
+                <li>
+                    <label for="password">비밀번호</label>
+                    <input type="password" name="password">
+                </li>
+                <li>
+                    <label for="name">이름</label>
+                    <input type="text" name="name">
+                </li>
+                <fieldset>
+                    <legend>주소 선택 태그</legend>
+                <li>
+                    <label for="address1">주소1</label>
+                    <input type="text" name="address1">
+                </li>
+                <li>
+                    <label for="address2">주소2</label>
+                    <input type="radio" name="address2" value="서울"><span>서울시</span>
+                    <input type="radio" name="address2" value="인천"><span>인천시</span>
+                    <input type="radio" name="address2" value="부산"><span>부산시</span>
+                </li>
+                <li>
+                    <label for="address3">주소3</label>
+                    <input type="checkbox" name="address3" value="서울"><span>서울시</span>
+                    <input type="checkbox" name="address3" value="인천"><span>인천시</span>
+                    <input type="checkbox" name="address3" value="부산"><span>부산시</span>
+                </li>
+                <li>
+                    <label for="address4">주소4</label>
+                    <select name="address4">
+                        <option value="선택">선택하세요</option>
+                        <option value="서울">서울시</option>
+                        <option value="인천">인천시</option>
+                        <option value="부산">부산시</option>
+                    </select>
+                </li>
+                </fieldset>
+                <li>
+                    <label for="birthday">생년월일</label>
+                    <input type="date" name="birthday">
+                </li>
+                <li>
+                    <label for="photo">프로필사진업로드</label>
+                    <input type="file" name="photo">
+                </li>
+                <li>
+                    <label for="intro">자기소개</label>
+                    <textarea name="intro" cols="50" rows="10" placeholder="100자 이내로 작성해주세요..."></textarea>
+                </li>
+                <li>
+                    <button type="submit">전송</button>
+                    <button type="button">전송(이벤트X)</button>
+                    <button type="reset">다시쓰기</button>
+                </li>
+                </fieldset>
+                <fieldset id="field2">
+                    <legend>기타항목</legend>
+                    <li></li>
+                </fieldset>
+            </ul>
+        </form>
+    </body>
+</html>

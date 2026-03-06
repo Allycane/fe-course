@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign-in</title>
+        <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <style>
+            header, main {
+                background-color: turquoise;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <a href="#"><i class="fa-solid fa-crown"></i></a>
+        </header>
+        <main>
+            <form action="#" method="get">
+                <div>
+                    <label for="profile"><img src="../Image/stickman.png" alt="photo" width="160px"></label>
+                </div>
+                <div> <!-- 유저 이름 -->
+                    <label for="username"><i class="fa-solid fa-envelope-open"></i></label>
+                    <input type="text" name="username" placeholder="Username">
+                </div>
+                <div>
+                    <label for="password"><i class="fa-solid fa-lock"></i></label>
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <div>
+                    <article>
+                        <label for="remember"></label>
+                        <input type="radio" name="remember"><span>Remember me</span>
+                        <a href="#">Forgot your password?</a>
+                    </article>
+                </div>
+                <article>
+                    <button type="button">Login</button>
+                </article>
+            </form>
+        </main>
+        <footer></footer>
+    </body>
+</html>

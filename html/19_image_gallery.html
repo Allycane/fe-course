@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Gallery</title>
+        <style>
+            b1 {
+                background-color: aqua;
+            }
+            ul {
+                /*property: value;*/
+                background-color: bisque;
+                list-style-type: none;
+                display: flex;
+                gap: 20px
+            }
+            li, article, figure{
+                border: 1px solid gray
+            }
+            img {
+                width:200px
+            }
+            div {
+                text-align: center;
+                padding: 10px;
+                padding-bottom: 15px;
+            }
+            section {
+                display: flex;
+                gap: 20px
+            }
+            /* article {
+                border: 1px solid blue;
+
+            } */
+            figcaption {
+                text-align: center;
+                padding-bottom: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Image Gallery : List</h1>
+        <ul>
+            <li>
+                <img src="https://www.w3schools.com/css/img_5terre.jpg" alt="Cinque Terre">
+                <div>Cinque Terre</div>
+            </li>
+            <li>
+                <img src="https://www.w3schools.com/css/img_forest.jpg" alt="Green Forest">
+                <div>Green Forest</div>
+            </li>
+            <li>
+                <img src="https://www.w3schools.com/css/img_lights.jpg" alt="Northern Lights">
+                <div>Northern Lights</div>
+            </li>
+            <li>
+                <img src="https://www.w3schools.com/css/img_mountains.jpg" alt="Mountains">
+                <div>Mountains</div>
+            </li>
+        </ul>
+        <hr>
+        <h1>Image Gallery : Semantic Tag</h1>
+        <section>
+            <article>
+                <figure>
+                    <img src="https://www.w3schools.com/css/img_5terre.jpg" alt="Cinque Terre">
+                    <figcaption><p>Cinque Terre</p></figcaption>
+                </figure>
+            </article>
+            <article>
+                <figure>
+                    <img src="https://www.w3schools.com/css/img_forest.jpg" alt="Green Forest">
+                    <figcaption><p>Green Forest</p></figcaption>
+                </figure>
+            </article>
+            <article>
+                <figure>
+                    <img src="https://www.w3schools.com/css/img_lights.jpg" alt="Northern Lights">
+                    <figcaption><p>Northern Lights</p></figcaption>
+                </figure>
+            </article>
+            <article>
+                <figure>
+                    <img src="https://www.w3schools.com/css/img_mountains.jpg" alt="Mountains">
+                    <figcaption><p>Mountains</p></figcaption>
+                </figure>
+            </article>
+        </section>
+    </body>
+</html>
