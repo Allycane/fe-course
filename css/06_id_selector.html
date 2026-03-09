@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ID Selector</title>
+        <meta name="description" content="ID Selector">
+        <style>
+            :root {
+                --color-main: yellow;
+                --color-font: tomato;
+            }
+            * {
+                margin:  0px;
+            }
+            #heading1 {
+                /* 글자색 : tomato, 크기: 300px, 높이 : 400px, 배경색: green*/
+                color: var(--color-font);
+                width: 300px;
+                height: 400px;
+                background-color: green;
+            }
+            #heading2 {
+                /* 글자색 : tomato, 배경색: yellow*/
+                color: var(--color-font);
+                background-color: var(--color-main);
+            }  
+            #heading3 {
+                /* 글자색 : blue, 배경색: yellow*/
+                color: blue;
+                background-color: var(--color-main);
+            }  
+        </style>
+    </head>
+    <body>
+        <h1 id="heading1">ID Selector #1</h1>
+        <h1 id="heading2">ID Selector #2</h1>
+        <h1 id="heading3">ID Selector #3</h1>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Universal Selector</title>
+        <meta name="description" content="셀렉터에 대한 예제입니다">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                /* HTML 코드의 시작점 */
+                /* 공통적인 속성을 변수로 정의 */
+                /* 원래는 외부 CSS에서 적용이 됨 */
+                --color-main: aquamarine;
+                --color-font: white;
+            }
+            * {
+                /* 전체 영역에 공통적인 속성을 정의하는 경우에 사용한다. */
+                background-color: var(--color-main);
+                font-family: 'Courier New', '맑은 고딕';
+                color: var(--color-font);
+                margin: 0;
+            }
+            h1 {
+                background-color: yellow;
+                font-family: 'Algerian';
+            }
+            h1, div {
+                background-color: green;
+            }
+            p {
+                font-family: "Open Sans", sans-serif;
+                background-color: blue;
+            }
+            h3 {
+                background-color: blueviolet;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Universal(All) Selector</h1>
+        <div>
+            <h3>SubTitle</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, vel asperiores? Tempora placeat perspiciatis harum nesciunt repellendus voluptatibus voluptatum eum corporis, fugiat nam vitae numquam incidunt! Rem, sapiente! Ullam, possimus.</p>
+        </div>
+    </body>
+</html>
