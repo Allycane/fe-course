@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Descendant Selector</title>
+        <meta name="description" content="Descendant Selector">
+        <style>
+            h1 {
+                color: blue;
+                background-color: aquamarine;
+            }
+            body li ul {
+                background-color: yellow;
+            }
+            #main-menu a {
+                color: red;
+            }
+            #sub-menu a {
+                color: orange;
+            }
+            /* 
+                descendant selecotr : 조상[space]자손 
+                child selector : 부모[>]자식
+                siblings selector : 기준태그[+]형제태그
+            */
+            body > nav {
+                background-color: tomato;
+            }
+            #main-menu > ul {
+                background-color: brown;
+            }
+            #sub-menu li > a {
+                text-decoration: none;
+            }
+            li#main-menu + li {
+                background-color: antiquewhite;
+            }
+            li#main-menu + li > a {
+                color: beige;
+                text-decoration: none;
+            }
+            h2 + p {
+                background-color: yellow;
+            }
+            h2 ~ p {
+                color: silver;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Descecndant Selector</h1>
+        <nav>
+            <ul>
+                <li id="main-menu"><a href="#">menu1</a>
+                    <ul id="sub-menu">
+                        <li><a href="#">submenu</a></li>
+                        <li><a href="#">submenu</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">menu2</a></li>
+                <li><a href="#">menu3</a></li>
+            </ul>
+        </nav>
+        <h2>Siblings Selector</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt commodi harum eaque adipisci illo, dignissimos tempore nihil, ipsum quia saepe vitae autem ex reprehenderit numquam earum laboriosam nemo odit quam.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt commodi harum eaque adipisci illo, dignissimos tempore nihil, ipsum quia saepe vitae autem ex reprehenderit numquam earum laboriosam nemo odit quam.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt commodi harum eaque adipisci illo, dignissimos tempore nihil, ipsum quia saepe vitae autem ex reprehenderit numquam earum laboriosam nemo odit quam.</p>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Align</title>
+    <meta name="description" content="Text Alignment">
+
+    <style>
+        p { background-color: aquamarine;}
+        span { background-color: mediumseagreen; }
+        div { border:1px solid red; }
+
+        .b-left {text-align: left; word-spacing: 50px; line-height: 50px; border: 2px solid; text-indent: 10px; /*margin-left: 100px;*/}
+        .b-right {text-align: right;}
+        .b-center {text-align: center;}
+
+        .i-left {text-align: left; word-spacing: 50px; line-height: 50px; border: 2px solid; text-indent: 50px;}
+        .i-right {text-align: right;}
+        .i-center {text-align: center;}
+
+        .d1 {text-align: left;}
+        .d2 {text-align: right;}
+        .d3 {text-align: center;}
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        .img-block {
+            text-align: center;
+            word-spacing: 50px;
+            line-height: 50px;
+        }
+        .b-justify {
+            width: 300px;
+            background-color: mediumturquoise;
+            text-align: justify;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Alignment</h1>
+    <h3>Block Level</h3>
+    <p class="b-left">text allign :: left</p>
+    <p class="b-right">text allign :: right</p>
+    <p class="b-center">text allign :: center</p>
+    <p class="b-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem doloribus hic ad, rem a alias ratione, aliquam pariatur, debitis officiis molestias. Facilis veritatis molestias unde ducimus repellendus temporibus suscipit illum?</p>
+    <hr>
+    <h3>Inline Level</h3>
+    <span class="i-left">text allign :: left</span>
+    <span class="i-right">text allign :: right</span>
+    <span class="i-center">text allign :: center</span>
+    <hr>
+
+    <div class="d1">
+        <span>text allign :: left</span>
+        <button>클릭하세요</button>
+        <a href="#">네이버</a>
+    </div>
+    <div class="d2"><span>text allign :: right</span></div>
+    <div class="d3"><span>text allign :: center</span></div>
+    <hr>
+
+    <h3>inline-block-level</h3>
+    <div class="img-block">
+        <img src="../Image/img01_resize.png" alt="tree">
+        <img src="../Image/img01_resize.png" alt="tree">
+        <img src="../Image/img01_resize.png" alt="tree">
+        <img src="../Image/img01_resize.png" alt="tree">
+        <img src="../Image/img01_resize.png" alt="tree">
+    </div>
+</body>
+</html>

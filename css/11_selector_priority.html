@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority</title>
+    <meta name="description" content="Priority">
+    <style>
+        /* 
+        선택자 우선순위
+        1. !important - 최우선순위 선택자 - 너무 남발하면 중요도가 떨어짐
+        2. inline-style - 태그에 직접 적용하는 스타일링
+        3. id
+        4. class, pseudo, attribute
+        5. element ( tag )
+        6. * ( Universal Selector 전체 선택자 )
+        */
+        * { background-color: silver;}
+        h1 { background-color: aquamarine;}
+        div { background-color: tomato;}
+        p { background-color: yellow;}
+        #p1 {color: blue;}
+        .p2 {color: orange !important;}
+
+    </style>
+</head>
+<body>
+    <h1>Selector Priority</h1>
+    <div>
+        <p id="p1" class="p2" style="color: chocolate;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ullam totam enim veritatis omnis ex magnam, soluta aspernatur voluptas pariatur autem nesciunt, aliquid exercitationem libero? Pariatur neque dolorem rem perspiciatis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ullam totam enim veritatis omnis ex magnam, soluta aspernatur voluptas pariatur autem nesciunt, aliquid exercitationem libero? Pariatur neque dolorem rem perspiciatis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ullam totam enim veritatis omnis ex magnam, soluta aspernatur voluptas pariatur autem nesciunt, aliquid exercitationem libero? Pariatur neque dolorem rem perspiciatis.</p>
+    </div>
+</body>
+</html>

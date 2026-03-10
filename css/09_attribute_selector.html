@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute Selector</title>
+    <meta name="description" content="Attribute Selector">
+    <style>
+        a[href="http://www.naver.com"] {
+            color: red;
+            text-decoration: none;
+        }
+        a[target=_self] {
+            color: silver;
+        }
+        a[target=_blank] {
+            color: red;
+            text-decoration: none;
+            background: yellow;
+        }
+        a[class^=inner] {
+            background-color: beige;
+        }
+        a[href="#"] {
+            color: red;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>Attribute Selector</h1>
+    <a href="#" class="inner_1">테스트1</a>
+    <a href="http://www.naver.com" target="_blank">NAVER</a>
+    <a href="http://www.google.com" target="_self">Google</a>
+    <a href="http://www.daum.net" target="_blank">Daum</a>
+    <a href="#" class="inner_2">테스트2</a>
+</body>
+</html>

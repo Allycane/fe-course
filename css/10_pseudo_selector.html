@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Selector</title>
+    <meta name="description" content="Pseudo Selector">
+    <style>
+        /* h1 태그 앞에 content에 해당하는 내용을 추가하고 글자색을 초록색으로 정의 */
+        h1::before {
+            content: "h1태그 앞에 추가되는 내용" ; 
+            color: green;
+        }
+        h1::after {
+            content: "h1태그 뒤에 추가되는 내용~";
+            color: red;
+        }
+
+        /* a 태그에 마우스를 올린 상태 */
+        a:hover {
+            text-decoration: none;
+        }
+        a[class="naver"]:hover {
+            color: red;
+        }
+        a[class="google"]:hover {
+            color: green;
+        }
+        a[class="daum"]:hover {
+            color: blue;
+        }
+
+        /* 마우스로 클릭을 한 뒤 */
+        a.naver:active { color: green;}
+        a.naver:visited { color: gray;}
+
+        /* 필드가 선택되었을 때 색상 변경 */
+        input { outline: none; }
+        input:focus {
+            background-color: yellow;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+        }
+
+        /* 수열 */
+        ul.menu > li:first-child, ul.menu > li:last-child {
+            background-color: red;
+        }
+        ul.menu > li:nth-child(3) {
+            background-color: silver;
+        }
+        div > p:first-child, div > p:last-child {
+            background-color: aquamarine;
+        }
+        /* 수열의 짝수에만 속성 적용 */
+        div > p:nth-child(2n) {
+            background-color: yellow;
+        }
+        /* 수열의 홀수에만 속성 적용 */
+        div > p:nth-child(2n+1) {
+            background-color: red;
+        }
+        div p:nth-child(even) {
+            background-color: beige;
+        }
+        div p:nth-child(odd) {
+            color: blue;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: silver;
+        }
+        table tr:first-child {
+            background-color: brown;
+        }
+
+        /* 체크박스에 관련된 속성을 부여할 경우 */
+        input:checked + span {
+            color: silver;
+        }
+        input:disabled {
+            background-color: yellow;
+        }
+
+        /* :not - 부정 선택자 : 얘를 제외한 나머지를 모두 선택 */
+        div *:not(p:nth-child(3)) {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pseudo Selector</h1>
+    <p>
+        <a href="http://www.naver.com" class="naver">Naver</a>
+        <a href="http://www.google.com" class="google">Google</a>
+        <a href="http://www.daum.net" class="daum">Daum</a>
+    </p>
+    <form action="#" method="get">
+        <ul>
+            <li>
+                <label for="name">이름</label>
+                <input type="text" name="name" id="name" value="홍길동" disabled>
+            </li>
+            <li>
+                <label for="address">주소</label>
+                <input type="text" name="address" id="address">
+            </li>
+            <li>
+                <label for="hobby">취미를 선택해주세요</label>
+                <input type="checkbox" name="hobby" value="game"><span>게임하기</span>
+                <input type="checkbox" name="hobby" value="music" checked><span>음악듣기</span>
+            </li>
+            <li>
+                <label for="menu">메뉴를 선택해주세요</label>
+                <input type="radio" name="menu" value="coffee"><span>커피</span>
+                <input type="radio" name="menu" value="milk"checked><span>우유</span>
+            </li>
+            <li>
+                <button disabled>전송하기</button>
+            </li>
+        </ul>
+    </form>
+    <hr>
+    <h2>Pseudo Selector - 수열</h2>
+    <ul class="menu">
+        <li><a href="#">Menu1</a></li>
+        <li><a href="#">Menu2</a></li>
+        <li><a href="#">Menu3</a></li>
+        <li><a href="#">Menu4</a></li>
+        <li><a href="#">Menu5</a></li>
+    </ul>
+    <div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore eligendi quidem iste reprehenderit commodi iure fugiat totam minus nemo! A enim architecto error officia ducimus laboriosam, tenetur optio doloribus neque.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore eligendi quidem iste reprehenderit commodi iure fugiat totam minus nemo! A enim architecto error officia ducimus laboriosam, tenetur optio doloribus neque.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore eligendi quidem iste reprehenderit commodi iure fugiat totam minus nemo! A enim architecto error officia ducimus laboriosam, tenetur optio doloribus neque.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore eligendi quidem iste reprehenderit commodi iure fugiat totam minus nemo! A enim architecto error officia ducimus laboriosam, tenetur optio doloribus neque.</p>
+    </div>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>상품명</th>
+            <th>가격</th>
+            <th>비고</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>키보드</td>
+            <td>10000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>키보드</td>
+            <td>10000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>키보드</td>
+            <td>10000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>키보드</td>
+            <td>10000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>키보드</td>
+            <td>10000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>키보드</td>
+            <td>10000</td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>
