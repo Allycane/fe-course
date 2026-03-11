@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Style</title>
+    <meta name="description" content="Display Style">
+    <style>
+        /* display property : block, inline inline-block level 전환 */
+        div {
+            /* block-level은 width, height 적용이 가능하다 */
+            width: 50%;
+            height: 100px;
+            display: inline;
+            background-color: aquamarine;
+        }
+        span, button {
+            /* inline-level은 width, height 적용이 불가능하다 */
+            width: 50%;
+            height: 100px;
+            background-color: chocolate;
+            display: block;
+        }
+        img {
+            display: block;
+            width: 200px;
+            height: 200px;;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Display Style</h1>
+    <hr>
+    <div>
+        block-level
+    </div>
+    <span>inline-level</span>
+    <button>클릭해주세요</button>
+    <img src="../Image/Stickman.png" alt="inline-block">
+</body>
+</html>

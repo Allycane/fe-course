@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow Style</title>
+    <!--p1: 가로 200, 세로 200, 배경색-->
+    <!--p2: 가로 300, 세로 200, 배경색-->
+    <!--p3: 가로 400, 세로 100, 배경색-->
+    <style>
+        p { margin: 30px; }
+        .p1 {
+            background-color: beige;
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+        }
+        .p2 {
+            background-color: midnightblue;
+            width: 500px;
+            height: 300px;
+            overflow-x: hidden;
+        }
+        img {
+            width: 500px;
+        }
+        .p3 {
+            background-color: chocolate;
+            width: 400px;
+            height: 100px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h1>Overflow Style</h1>
+    <p class="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus officiis, recusandae nihil tenetur minus, sit possimus molestias nostrum veritatis deserunt, optio quos esse harum sint accusamus. Voluptatibus quis numquam pariatur.</p>
+    <div class="p2">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus officiis, recusandae nihil tenetur minus, sit possimus molestias nostrum veritatis deserunt, optio quos esse harum sint accusamus. Voluptatibus quis numquam pariatur.</p>
+        <img src="../Image/stickman.png" alt="stickman">
+    </div>
+    <p class="p3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus officiis, recusandae nihil tenetur minus, sit possimus molestias nostrum veritatis deserunt, optio quos esse harum sint accusamus. Voluptatibus quis numquam pariatur.</p>
+</body>
+</html>

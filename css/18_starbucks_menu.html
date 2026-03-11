@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Starbucks Menu</title>
+        <meta name="description" content="Starbucks Menu">
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <style>
+            * { font-family: "Nanum Gothic"; background-color: rgb(246, 245, 239); }
+            header {
+                width: 1100px;
+                /* border: 1px solid chocolate; */
+                margin: auto;
+                display: flex;
+                justify-content: space-between;
+                /* background-color: rgb(246, 245, 239); */
+            }
+            .header-menu-top ul, .header-menu-bottom ul {
+                display: flex;
+                list-style: none;
+                justify-content: right;
+            }
+            .header-menu-top ul {
+                gap: 20px;
+                font-size: 0.8rem;
+                align-items: center;
+            }
+            
+            .header-menu-bottom ul {
+                gap: 30px;
+                font-size: 0.9rem;
+                letter-spacing: .5px;
+            }
+            .header-menu-top ul a, .header-menu-bottom ul a {
+                text-decoration: none;
+                color: #333;
+            }
+            .header-menu-top li:last-child {
+                border: 1px solid gray;
+                border-radius: 5px;
+                padding: 5px;
+                background-color: white;
+            }
+            .header-menu-top li:last-child i {
+                font-size: 1.2rem;
+            }
+            .header-menu-top li:last-child input {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-logo">
+                <a href="#"><img src="https://www.starbucks.co.kr/common/img/common/logo.png" alt="logo"></a>
+            </div>
+            <div class="header-menu">
+                <nav class="header-menu-top">
+                    <ul>
+                        <li><a href="#">Sign In</a></li>
+                        <li><a href="#">My Starbucks</a></li>
+                        <li><a href="#">Customer Service & Ideas</a></li>
+                        <li><a href="#">Find a Store</a></li>
+                        <li>
+                            <input type="text">
+                            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="header-menu-bottom">
+                    <ul>
+                        <li><a href="#">COFFEE</a></li>
+                        <li><a href="#">MENU</a></li>
+                        <li><a href="#">STORE</a></li>
+                        <li><a href="#">ESG</a></li>
+                        <li><a href="#">STARBUCKS REWARDS</a></li>
+                        <li><a href="#">CORPORATE SALES</a></li>
+                        <li><a href="#">WHAT'S NEW</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </body>
+</html>

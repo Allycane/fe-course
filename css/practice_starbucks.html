@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Practice Starbucks</title>
+        <meta name="description" content="Practice how to build Starbucks Homepage menu">
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="shortcut icon" href="https://www.starbucks.co.kr/common/img/common/logo.png" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <style>
+            * { background-color: rgb(246, 245, 239); font-family: "Nanum Gothic";}
+            header {
+                display: flex;
+                width: 1100px;
+                justify-content: space-between;
+                margin: auto;
+                align-items: end;
+            }
+            .header-top-menu ul, .header-bottom-menu ul {
+                list-style-type: none;
+                display: flex;
+                padding: 0;
+                justify-content: right;
+            }
+            .header-top-menu ul {
+                gap: 20px;
+                font-size: 0.7rem;
+                align-items: center;
+            }
+            .header-bottom-menu ul {
+                text-transform: uppercase;
+                gap: 30px;
+                font-size: 0.9rem;
+                letter-spacing: .5px;
+            }
+            .header-top-menu a, .header-bottom-menu a {
+                text-decoration: none;
+                color: #333;
+            }
+            .header-top-menu ul i {
+                font-size: 1.3rem;
+                border: 2px solid lightgray;
+                border-radius: 5px;
+                background-color: white;
+                padding: 3px;
+            }
+            input {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <section class="header-logo">
+                <a href="https://www.starbucks.co.kr/index.do"><img src="https://www.starbucks.co.kr/common/img/common/logo.png" alt="starbucks-logo"></a>
+            </section>
+            <section>
+                <nav class="header-top-menu">
+                    <ul>
+                        <li><a href="#">Sign In</a></li>
+                        <li><a href="#">My Starbucks</a></li>
+                        <li><a href="#">Customer Service & Ideas</a></li>
+                        <li><a href="#">Find a Store</a></li>
+                        <section>
+                            <input type="text">
+                            <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                        </section>
+                    </ul>
+                </nav>
+                <nav class="header-bottom-menu">
+                    <ul>
+                        <li><a href="#">coffee</a></li>
+                        <li><a href="#">menu</a></li>
+                        <li><a href="#">store</a></li>
+                        <li><a href="#">esg</a></li>
+                        <li><a href="#">starbucks rewards</a></li>
+                        <li><a href="#">corporate sales</a></li>
+                        <li><a href="#">what's new</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </header>
+    </body>
+</html>

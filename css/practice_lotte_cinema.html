@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice LotteCinema</title>
+    <meta name="description" content="Practice Lotte Cinema Menu Layout">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: "Nanum Gothic"; }
+        header { 
+            /* border: 1px solid blue;  */
+            margin: auto;
+            width: 1000px;
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid lightgray;
+        }
+        .header-bottom-center {
+            border: 1px solid red;
+            margin-top: 12px;
+        }
+        .header-top-left ul, .header-top-right ul, .header-bottom ul {
+            list-style-type: none;
+            display: flex;
+            gap: 10px;
+            padding: 0;
+        }
+        .header-top-left a, .header-top-right a, .header-bottom a {
+            text-decoration: none;
+        }
+        .header-top-left a, .header-top-right a{
+            color: lightgray;
+            font-size: .7rem;
+        }
+
+        .header-bottom {
+            display: flex;
+            border: 1px solid blue;
+        }
+        .header-bottom-right {
+            border: 1px solid red;
+            justify-content: right;
+        }
+        .header-bottom a { color: gray; font-weight: bold;}
+        .header-bottom-right a { font-size: .8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <section class="header-top">
+            <nav class="header-top-left">
+                <ul>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i> 인스타그램</a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i> 유튜브</a></li>
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i> 페이스북</a></li>
+                </ul>
+            </nav>
+            <section class="header-top-center">
+                <a href="#"><img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/logo.png" alt=""></a>
+            </section>
+            <nav class="header-top-right">
+                <ul>
+                    <li><a href="#">맴버십</a></li>
+                    <li><a href="#">고객센터</a></li>
+                    <li><a href="#">단체관람/대관문의</a></li>
+                    <li><a href="#">로그인</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section class="header-bottom">
+            <nav>
+                <ul class="header-bottom-center">
+                    <li>
+                        <a href="#">예매</a>
+                    </li>
+                    <li>
+                        <a href="#">영화</a>
+                    </li>
+                    <li>
+                        <a href="#">영화관</a>
+                    </li>
+                    <li>
+                        <a href="#">이벤트</a>
+                    </li>
+                    <li>
+                        <a href="#">스토어</a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="header-bottom-right">
+                <ul>
+                    <li><a href="#">회원가입</a></li>
+                    <li><a href="#">바로 예매</a></li>
+                    <li><a href="#">메뉴</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+</body>
+</html>
