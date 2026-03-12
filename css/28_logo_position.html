@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Logo Position</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <style>
+            * { font-family: "Nanum Gothic";}
+            .parent {
+                border: 1px solid gray;
+                box-sizing: border-box;
+                padding: 20px;
+                width: 100%;
+                background-color: rgb(246, 245, 239);
+                position: relative;
+            }
+            .child {
+                /* border: 1px solid blue; */
+                text-transform: uppercase;
+                position: absolute;
+                top: 30px;
+                left: 110px;
+                font-size: 1.2rem ;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Logo Position</h1>
+        <div class="parent"> <!-- position: relative -->
+            <img src="https://www.starbucks.co.kr/common/img/common/logo.png" alt="starbucks logo">
+            <p class="child">starbucks coffee</p> <!-- position: absolute -->
+        </div>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Slider</title>
+        <style>
+            .slider-wrapper {
+                box-sizing: border-box;
+                position: relative;
+                width: 1000px;
+                height: 320px;
+                margin: auto;
+                border: 1px solid gray;
+                text-align: center;
+            }
+            .slider-wrapper img {
+                width: 800px; height: 320px;
+            }
+            button {
+                position: absolute;
+                top: 40%;
+                padding: 10px 20px;
+                background-color: black;
+                color: white;
+                border: none;
+                font-size: 2rem;
+            }
+            button:hover {
+                background-color: midnightblue;
+            }
+            .btn-prev {
+                left: 15px;
+            }
+            .btn-next {
+                right: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Image Slider</h1>
+        <div class="slider-wrapper">
+            <img src="../Image/img02.jpg" alt="slide image">
+            <button class="btn-prev">&lt;</button>
+            <button class="btn-next">&gt;</button>
+        </div>
+    </body>
+</html>

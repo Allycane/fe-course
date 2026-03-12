@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Box Model</title>
+        <style>
+            div {
+                border: 1px solid chocolate;
+                /* padding: 10px; */
+            }
+            span {
+                /* border: 1px solid blue; */
+                padding: 10px;
+                background-color: aquamarine;
+            }
+            .d1, .d2 {
+                margin: 20px;
+            }
+            .d2 { overflow: hidden;}
+            /* .d2 span { margin: 30px; display: inline-block;} */
+
+            .padding {
+                /* padding: T (top) R (right) B (bottom) L (left) */
+                /* padding: 10px 30px 50px 40px; */
+                padding: 20px 40px;
+            }
+            .margin {
+                margin: 20px 30px 50px 40px;
+            }
+            p, h3 { border: 1px solid blue; margin: 0;}
+        </style>
+    </head>
+    <body>
+        <h1>Box Model Style :: padding, border, margin</h1>
+        <div class="d1">Box Model - Content</div>
+        <div class="d2"><span>Box Model - Content ( span tag )</span></div>
+        <div class="padding">
+            <h3>Padding</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta expedita optio quaerat harum eligendi animi atque, commodi nisi doloremque, incidunt ex reiciendis. Voluptatum illo minus amet cum, facilis expedita eveniet.</p>
+        </div>
+        <div class="margin">
+            <h3>Padding</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta expedita optio quaerat harum eligendi animi atque, commodi nisi doloremque, incidunt ex reiciendis. Voluptatum illo minus amet cum, facilis expedita eveniet.</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Float</title>
+        <style>
+            .box-group div {
+                width: 100px; height: 100px;
+                /* display: inline-block; */
+            }
+            .d1 {
+                background-color: aquamarine; 
+                float: left;
+            }
+            .d2 {
+                background-color: midnightblue; 
+                float: left;
+            }
+            .d3 {
+                background-color: orange; 
+                float: left;
+            }
+            .box-group p {
+                clear: left;
+            }
+            .img-group img {
+                width: 100; height:100px;
+                float: right;
+                padding: 20px;
+            }
+            .img-group {
+                width: 400px; height: 300px;
+                overflow: auto;
+                border: 1px solid gray;
+                margin: 10px;
+            }
+            .no-float { clear: both;}
+        </style>
+    </head>
+    <body>
+        <h1>Float Style : 블록 레벨의 요소를 한 줄로 정렬하여 배치</h1>
+        <div class="box-group">
+            <div class="d1"></div>
+            <div class="d2"></div>
+            <div class="d3"></div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum alias ab eius reprehenderit expedita. Sunt ullam error, necessitatibus magni autem totam sint quis dignissimos quasi est minus? Voluptas, reprehenderit quos.</p>
+        </div>
+        <div class="img-group">
+            <img src="../Image/stickman.png" alt="img">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt corporis sed, recusandae assumenda enim sit expedita incidunt natus vel suscipit ducimus consequuntur praesentium inventore tempore dolorem eum hic ratione vero.</p>
+            <p class="no-float">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem blanditiis, magnam itaque dolore sapiente suscipit sunt fugit impedit sint. Doloribus molestias beatae illum libero aspernatur pariatur. Dolores suscipit voluptas ducimus?</p>
+        </div>
+    </body>
+</html>
