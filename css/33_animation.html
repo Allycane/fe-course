@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Animation Style</title>
+        <style>
+            .box {
+                width: 200px; height: 200px;
+                border: 1px solid chocolate;
+            }
+            .box:hover{
+                animation: changeColor 3s 0s 3; /* 마우스가 hover가 되면 백그라운드를 변경해주는 애니메이션을 3초동안 진행, 중간에 멈추는 딜레이는 0, 한번만 재생하도록 설정 */
+            }
+            @keyframes changeColor {
+                from{
+                    background-color: aquamarine;
+                } /*시작할 때 스타일 정의*/
+                50% { background-color: yellow; }
+                to {
+                    background-color: midnightblue;
+                } /*끝날 때 스타일 정의*/
+            }
+            .box-image { width: 100%; height: 500px;
+                background-image: url("../Image/pattern_2.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                justify-content: center;
+            }
+            img {
+                width: 200px; height: 200px;
+            }
+            .imgset1, .imgset2, .imgset3, .imgset4, .imgset5 {
+                opacity: 0;
+                animation: fadeInUp 2s ease forwards;
+            }
+            .imgset1 {
+                animation-delay: 1s;
+            }
+            .imgset2 {
+                animation-delay: 2s;
+            }
+            .imgset3 {
+                animation-delay: 3s;
+            }
+            .imgset4 {
+                animation-delay: 4s;
+            }
+            .imgset5 {
+                animation-delay: 5s;
+            }
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateX(-100px);
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Animation Style</h1>
+        <div class="box">box animation</div>
+        <div class="box-image">
+            <img src="../Image/Favicon.ico" alt="tree" class="imgset1">
+            <img src="../Image/Favicon.ico" alt="tree" class="imgset2">
+            <img src="../Image/Favicon.ico" alt="tree" class="imgset3">
+            <img src="../Image/Favicon.ico" alt="tree" class="imgset4">
+            <img src="../Image/Favicon.ico" alt="tree" class="imgset5">
+        </div>
+    </body>
+</html>

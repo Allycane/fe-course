@@ -12,13 +12,12 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
         <style>
-            * { background-color: rgb(246, 245, 239); font-family: "Nanum Gothic";}
+            * { /*background-color: rgb(246, 245, 239);*/font-family: "Nanum Gothic";}
             header {
                 display: flex;
                 width: 1100px;
                 justify-content: space-between;
                 margin: auto;
-                align-items: end;
             }
             .header-top-menu ul, .header-bottom-menu ul {
                 list-style-type: none;
@@ -50,6 +49,93 @@
             }
             input {
                 display: none;
+            }
+            /*--------------------Background Style-------------------------------------------*/
+            .bg-main {
+                width: 100%; height: 32.3vw;
+                background-image: url("https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_bg_260220.jpg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                display: flex;
+                justify-content: center;
+                box-sizing: border-box;
+                position: relative;
+            }
+            img {
+                box-sizing: border-box;
+                margin-bottom: 100px;
+            }
+            .bg-main-slogan {
+                position: absolute;
+                top: 35%;
+                left: 10%;
+            }
+            .slg, .drink1, .drink2, .drink3, .drink4, .drink5 {
+                opacity: 0;
+                animation: fadeIn 3s ease forwards;
+            }
+            .slg { 
+                animation-delay: 0.5s; 
+            }
+            .drink1 { 
+                animation-delay: 1s;
+                position: absolute;
+                top: 12%;
+                left: 38%
+            }
+            .drink2 { 
+                animation-delay: 1.5s;
+                position: absolute;
+                top: 23%;
+                /* top: 12%; */
+                left: 48%;
+            }
+            .drink3 { 
+                animation-delay: 2s;
+                position: absolute;
+                top: 12%;
+                left: 55%;
+            }
+            .drink4 { 
+                animation-delay: 2.5s;
+                position: absolute;
+                top: 12%;
+                left: 67.5%;
+            }
+            .drink5 { 
+                animation-delay: 3s;
+                position: absolute;
+                top: 12%;
+                left: 76.5%;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            .main-detail:hover {
+                
+                animation: buttonAnim 2s 0 2;
+            }
+
+            @keyframes buttonAnim {
+                from {
+                    background-color: rgb(252, 221, 226);
+                    text-decoration: none;
+                    border: 1px solid violet;
+                    color: violet;
+                }
+                to {
+                    background-color: violet;
+                    text-decoration: underline;
+                    color: white;
+                }
             }
         </style>
     </head>
@@ -84,5 +170,23 @@
                 </nav>
             </section>
         </header>
+        <main>
+            <section class="bg-main">
+                <section class="bg-main-slogan">
+                    <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_slogan_260220.png" alt="슬로건" class="slg">
+                </section>
+                <section class="bg-main-img">
+                <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink01_260220.png" alt="슈크림라떼" class="drink1">
+                <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink02_260220.png" alt="슈 폼 라떼" class="drink2">
+                <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink03_260220.png" alt="슈크림 말차 라떼" class="drink3">
+                <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink04_260220.png" alt="슈크림 딸기 라떼" class="drink4">
+                <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink05_260220.png" alt="체리블라썸" class="drink5">
+                </section>
+                <section>
+                    <button class="main-detail">자세히보기</button>
+                </section>
+            </section>
+        </main>
+        <footer></footer>
     </body>
 </html>
