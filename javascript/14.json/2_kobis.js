@@ -29,9 +29,18 @@ function openModal(infoObj) {
         modalBody.innerHTML = '';
     })
 
+    let posters = infoObj.posterObj.split(",");
+
     let output = `
         <h3>[ ${infoObj.rank}위 ] ${infoObj.movieNm}</h3>
-        <ul>
+        <ul style="list-style-type: none;">
+            <li>
+            ${
+                posters.map(poster => `
+                        <img src="${poster}" style="width:200px; display=flex;">
+                    `).join("")
+            }
+            </li>
             <li><label>감독 : ${infoObj.director}</label></li>
             <li><label>출연진 : ${infoObj.actorName}</label></li>
         </ul>
@@ -41,7 +50,7 @@ function openModal(infoObj) {
     modalBody.innerHTML = output;
 }
 
-async function handleMovieInfo(movieCd, rank) {
+async function handleMovieInfo(movieCd, rank, poster, posterObj) {
     let info = await getMovieInfo(movieCd);
     let movieNm = info.movieInfoResult.movieInfo.movieNm;
     let director = info.movieInfoResult.movieInfo.directors[0].peopleNm;
@@ -57,12 +66,27 @@ async function handleMovieInfo(movieCd, rank) {
      */
     let actorName = actors.slice(0, 5);
 
-
-    openModal({ movieNm, director, actorName, rank });
-    // console.log(movieNm, typeof movieNm);
-    // console.log(director, typeof director);
-    // console.log(actors.slice(0, 5), typeof actors);
+    openModal({ movieNm, director, actorName, rank, poster, posterObj });
 }
+
+// 포스터를 검색하는 함수 - KMDB 연동
+async function searchMoviePoster(movieNm, openDt) {
+    const kmdb_key = `4C2X0064BF3046O14597`;
+    let kmdb_url = `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&title=${movieNm}&releaseDts=${openDt}&ServiceKey=${kmdb_key}`
+
+    let response = await fetch(kmdb_url);
+    let kmdb = await response.json();
+    let data = await kmdb.Data[0].Result[0];
+    let poster = null;
+    if(data === null) {
+        poster = [];
+    } else {
+        poster = await kmdb.Data[0].Result[0].posters.split("|");
+    }
+    
+    return poster;
+}
+
  
 async function handleBoxOffice() {
     let selectType = document.querySelector('#type').value;
@@ -90,10 +114,22 @@ async function handleBoxOffice() {
         let kobis = await getJson(selectType, target);
         let kobisResult = kobis.boxOfficeResult;
         let kobisList = null;
+        let posterList = [];
+        let posterObj = [];
         if ( selectType === 'Daily') {
             kobisList = kobis.boxOfficeResult.dailyBoxOfficeList;
         } else {
             kobisList = kobis.boxOfficeResult.weeklyBoxOfficeList;
+        }
+
+        for ( let movie of kobisList) {
+            // 영화제목(movieNm), 개봉일(openDt)
+            let movieNm = movie.movieNm;
+            let openDt = movie.openDt.split("-").reduce((acc, cur) => acc + cur);
+
+            let posters = await searchMoviePoster(movieNm, openDt);
+            posterList.push(posters[0]);
+            posterObj.push(posters.slice(1, 5));
         }
 
         let output = `
@@ -109,11 +145,13 @@ async function handleBoxOffice() {
                 <th>누적 매출액</th>
             </tr>
             ${
-                kobisList.map((data) => 
+                kobisList.map((data, idx) => 
                     `
                         <tr>
                             <td>${data.rank}</td>
-                            <td>${data.movieNm} / <a href="#" onclick="handleMovieInfo(${data.movieCd}, ${data.rank})">${data.movieCd}</a></td>
+                            <td>
+                            <img src="${posterList[idx]}" style="width:100px">
+                            ${data.movieNm} / <a href="#" onclick="handleMovieInfo(${data.movieCd}, ${data.rank}, '${posterList[idx]}', '${posterObj[idx]}')">${data.movieCd}</a></td>
                             <td>${data.openDt}</td>
                             <td>${parseInt(data.audiCnt).toLocaleString()} 명</td>
                             <td>${parseInt(data.audiAcc).toLocaleString()} 명</td>
