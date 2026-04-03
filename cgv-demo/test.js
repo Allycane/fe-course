@@ -24,10 +24,10 @@ const getKmdbJson = async(movieNm, openDt) => {
     let data = await kmdb.Data[0].Result[0];
     
     let poster = null;
-    if (data === null) {
+    if (kmdb.Data[0].Result[0] === null) {
         poster = [];
     } else {
-        poster = await data.posters.split("|");
+        poster = await kmdb.Data[0].Result[0].posters.split("|");
     }
 
     return poster;
@@ -48,43 +48,32 @@ async function handleMoviePoster() {
         let openDt = movie.openDt.split("-").reduce((acc, cur) => acc + cur);
 
         let posters = await searchMoviePoster(movieNm, openDt);
-        posterList.push(posterList[0]);
+        posterList.push(posters[0].slice(0, 5));
     }
 
     console.log(posterList);
 
 
     let outputPoster = `
-        ${
-            kobisList.map(idx => {
-                `
-                    <img src="${posterList[idx]}" style="width:200px">
-                `
-            }).join("")
-        }
+        <ul>
+            ${
+                posterList.map((poster, idx) => {
+                    `
+                    <li>
+                        <div>
+                            <img src="${poster[idx]}}" width="200px">
+                        </div>
+                        <div><h3>왕과 사는 남자</h3></div>
+                        <div><h4>예매율 100%</h4></div>
+                    </li>
+                    `
+                }).join("")
+            }
+        </ul>
     `;
-
-    let outputMovieNm = `
-        ${
-            kobisList.map(data => {
-                `
-                    <h3>${data.movieNm}</h3>
-                `
-            }).join("")
-        }
-    `;
-
-    let outputRank = `
-        ${
-            kobisList.map(data => {
-                `
-                    <h4>박스오피스 ${data.rank}</h4>
-                `
-            }).join("")
-        }
-    `;
-
-    document.querySelector('.test-poster').innerHTML = outputPoster;
-    document.querySelector('.test-movieNm').innerHTML = outputMovieNm;
-    document.querySelector('.test-movieRank').innerHTML = outputRank;
+    document.querySelector('.content-moviechart-list').insertAdjacentHTML(afterEnd, outputPoster);
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+    handleMoviePoster();
+})
