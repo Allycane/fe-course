@@ -1,0 +1,11 @@
+.body {
+    width: 1200px;
+    height: 500px;
+    margin: auto;
+    text-align: center;
+    background-color: midnightblue;
+}
+/*
+태그로 스타일링을 적용하게 되면 최종적으로 컴포넌트가 호출되는 위치에서 태그에 스타일링을 적용하기 때문에
+모든 컴포넌트 내의 h1에 스타일이 적용되어버리고 말기 떄문에, 클래스를 지정하여 스타일링을 주는 것이 좋다
+*/
