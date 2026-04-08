@@ -1,0 +1,15 @@
+.menu1 {
+    border: 1px solid gray;
+    background-color: aquamarine;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.menu2 {
+    border: 1px solid gray;
+    background-color: tomato;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+}

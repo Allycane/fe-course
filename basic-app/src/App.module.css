@@ -1,0 +1,7 @@
+/*.module.css 임포트한 컴포넌트에만 적용되는 지역 스타일 */
+
+.button {
+  width: 200px;
+  height: 50px;
+  background-color: aquamarine;
+}
