@@ -266,4 +266,17 @@ React는 선언형 프로그래밍 패러다임
         Object :: const [obj, setObj] = useState({});
         Boolean :: const [flag, setFlag] = useState(true/false);
 
+10. Reference - useRef
+    (1) Ref란?
+        - 실제 DOM 요소를 직접 참조하여 관리하는 기능을 가짐
+            ( = Reference )
+    (2) useRef 사용법
+        import { useRef } from 'react';
+        const nameRef = useRef(null);
+
+        const handleOnChange = () => {} 
+        <input type="text" name="name" ref={nameRef} onChange={handleOnChange}/>
+        렌더링을 통해 브라우저에 출력이 되었을 때 name값을 nameRef가 가지게 된다
+    (3) 실제 DOM 입력폼 값 가져오기 : nameRef.current.value
+        실제 DOM 입력폼 포커스 정의 : nameRef.current.focus()
 

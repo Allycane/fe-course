@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CGV-Demo</title>
+        <link rel="stylesheet" href="../css/cgv.css">
+        <link rel="stylesheet" href="../css/commons.css">
+        <script src="../js/cgv_join.js"></script>
+    </head>
+    <body>
+        <!-- header -->
+        <iframe src="../html/header.html" frameborder="0" width="100%" height="150px"></iframe>
+
+        <!-- join content -->
+         <div class="content">
+            <div class="join-form center-layout">
+                <h1 class="center-title">회원가입</h1>
+                <form action="#" method="post">
+                    <ul>
+                        <li>
+                            <label for="id"><b>아이디</b></label>
+                            <span id="idMsg">아이디를 입력해주세요</span>
+                            <div>
+                                <input type="text" name="id" id="id" placeholder="아이디를 입력해주세요 (6~20자 이상)">
+                                <button>중복확인</button>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="pwd"><b>패스워드</b></label>
+                            <span id="pwdMsg">12자 이내의 패스워드를 입력해주세요</span>
+                            <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력해주세요 (문자, 숫자, 특수문자 포함 6~12자 이상)">
+                        </li>
+                        <li>
+                            <label for="cpwd"><b>패스워드 확인</b></label>
+                            <span id="cpwdMsg">패스워드가 일치하지 않습니다</span>
+                            <input type="password" name="cpwd" id="cpwd" placeholder="비밀번호를 다시 입력해주세요">
+                        </li>
+                        <li>
+                            <label for="name"><b>이름</b></label>
+                            <span id="nameMsg">이름을 입력해주세요</span>
+                            <input type="text" name="name" id="name" placeholder="홍길동">
+                        </li>
+                        <li>
+                            <label for="phone"><b>전화번호</b></label>
+                            <span id="phoneMsg">전화번호를 입력해주세요</span>
+                            <input type="text" name="phone" id="phone" placeholder="01012345678 ('-' 없이 입력)">
+                        </li>
+                        <li>
+                            <label for="emailname"><b>Email</b></label>
+                            <span id="emailMsg">Email을 입력해주세요</span>
+                            <div>
+                                <input type="text" name="emailname" id="emailname" placeholder="example">
+                                <span>@</span>
+                                <select name="emaildomain" id="emaildomain">
+                                    <option value="default">선택</option>
+                                    <option value="naver.com">naver.com</option>
+                                    <option value="gmail.com">gmail.com</option>
+                                    <option value="daum.net">daum.net</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <button type="button" id="btnReset">다시쓰기</button>
+                            <button type="button" id="btnSignup">가입하기</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- footer -->
+        <iframe src="../html/footer.html" frameborder="0" width="100%" height="500px""></iframe>
+    </body>
+</html>
