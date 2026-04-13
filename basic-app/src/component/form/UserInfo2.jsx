@@ -9,10 +9,10 @@ import InputText from "./InputText.jsx";
 
 export default function UserInfo()  {
     const forms = [
-        {label:"이름", type:"text", name:"name"},
-        {label:"나이", type:"text", name:"age"},
-        {label:"주소", type:"text", name:"address"},
-        {label:"직업", type:"text", name:"job"}
+        {label:"이름", type:"text", name:"name", isRequired: true},
+        {label:"나이", type:"text", name:"age", isRequired: true},
+        {label:"주소", type:"text", name:"address", isRequired: false},
+        {label:"직업", type:"text", name:"job", isRequired: false}
     ]
 
     const refs = useRef({});
@@ -43,12 +43,12 @@ export default function UserInfo()  {
                 <ul>
                     {forms.map((item, idx) => 
                         <li key={idx}>
-                            <label htmlFor="name">{item.label}</label>
+                            {item.isRequired && <span>🎈</span>}<label htmlFor="name">{item.label}</label>
                             { !form?.[item.name]?.trim() &&
                                 <span style={{color:"red", fontSize:".6rem"}}> 이름을 입력해주세요</span>
                             }
                             <div>
-                                <InputText item={item} value={form[item.name]} handleChange={handleChange} inputRef={(e) => refs[item.name] = e}/>
+                                <InputText item={item} value={form[item.name]} handleChange={handleChange} inputRef={(e) => refs.current[item.name] = e}/>
                             </div>
                         </li>
                     )}
