@@ -1,0 +1,60 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.room_container {
+    position: relative;
+    width: 220px;
+    /* border: 1px solid red; */
+    text-align: center;
+    padding: 15px 0;
+}
+
+.room_img {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+}
+
+.guest_preference {
+    font-size: .6rem;
+    font-weight: bold;
+    padding: 8px 11px;
+    border-radius: 16px;
+    background-color: beige;
+    position: absolute;
+    top: 25px;
+    left: 22px;
+}
+
+.like {
+    font-size: 1.6rem;
+    font-weight: bold;
+    position: absolute;
+    top: 19px;
+    right: 20px;
+}
+
+.room_title {
+    font-size: .9rem;
+    text-align: left;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.room_date {
+    font-size: .8rem;
+    color: gray;
+    text-align: left;
+    margin-left: 15px;
+}
+
+.room_price {
+    display: flex;
+    font-size: .8rem;
+    color: gray;
+    text-align: left;
+    margin-left: 15px;
+    gap: 8px;
+}
+
