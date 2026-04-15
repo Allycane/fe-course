@@ -1,7 +1,11 @@
 {
     "header" : {
+        "logo" : {
+            "img" : "/images/favicon.ico",
+            "name" : "Judy"
+        },
         "menus" : [
-            {"href" : "#home", "style":"header-menu-item active", "name":"Home"},
+            {"href" : "#home", "style":"header-menu-item", "name":"Home"},
             {"href" : "#about", "style":"header-menu-item", "name":"About"},
             {"href" : "#skills", "style":"header-menu-item", "name":"Skills"},
             {"href" : "#work", "style":"header-menu-item", "name":"Work"},
@@ -9,6 +13,95 @@
             {"href" : "#contact", "style":"header-menu-item", "name":"Contact"}
         ]
     },
-    "content" : {},
+    "content" : {
+        "home" : {
+            "img" : "/images/favicon.ico",
+            "alt" : "photo",
+            "title" : "Dream Coder",
+            "name" : "Judy",
+            "description" : "A software engineer currently residing in Seoul, South Korea",
+            "href" : "#",
+            "menuName" : "Contact Me"
+        },
+
+        "about" : {
+            "lorem" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias optio impedit distinctio quidem vero nobis, doloremque aspernatur voluptate, mollitia sunt repellat, quasi dolorum at eos. Ullam corporis sequi voluptate alias?",
+
+            "majors" : [
+                {
+                    "icon":"html", 
+                    "title" : "Front-End", 
+                    "subject" : "HTML, CSS, JavaScript, TypeScript, React, WebAPIs"
+                },
+                {
+                    "icon":"mobile", 
+                    "title" : "Mobile", 
+                    "subject" : "Android Studio, React Native, iOS, Swift, Java, Kotlin"
+                },
+                {
+                    "icon":"server", 
+                    "title" : "Back-End", 
+                    "subject" : "Java, JavaScript, Go, Kotlin, Spring, Spring Boot"
+                }
+            ],
+            "jobs" : [
+                {
+                    "img":"/images/jobs/google.png", 
+                    "alt":"google", 
+                    "job" : "Google as Junior", 
+                    "period" : "2019 Oct ~ Until now"
+                },
+                {
+                    "img":"/images/jobs/samsung.png", 
+                    "alt":"samsung", 
+                    "job" : "Samsung as Junior Software Engineer", 
+                    "period" : "2010 Oct ~ 2019 Oct"
+                }
+            ]
+        },
+
+        "skills" : {
+            "coding" : [
+                {
+                    "title":"HTML", 
+                    "value":"98%", 
+                    "width":"98%"
+                },
+                {
+                    "title":"CSS", 
+                    "value":"90%", 
+                    "width":"90%"
+                },
+                {
+                    "title":"JavaScript", 
+                    "value":"90%", 
+                    "width":"90%"
+                },
+                {
+                    "title":"TypeScript", 
+                    "value":"80%", 
+                    "width":"80%"
+                },
+                {
+                    "title":"React", 
+                    "value":"79%", 
+                    "width":"79%"
+                },
+                {
+                    "title":"NodeJS", 
+                    "value":"68%", 
+                    "width":"68%"
+                }
+            ],
+            "tool" : [
+                "Visual Studio Code", 
+                "Intellij", 
+                "Android Studio Code", 
+                "MySQL workbench", 
+                "Eclipse"
+            ],
+            "etc" : [ "Git", "Scrum Master", "SVN" ]
+        }
+    },
     "footer" : {}
 }

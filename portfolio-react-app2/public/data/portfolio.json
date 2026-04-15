@@ -1,0 +1,50 @@
+{
+    "header" : {
+        "menuList" : [
+            {
+                "href" : "#home", 
+                "className" : "header-menu-item", 
+                "title" : "Home"
+            },
+            {
+                "href" : "#about", 
+                "className" : "header-menu-item", 
+                "title" : "About"
+            },
+            {
+                "href" : "#skills", 
+                "className" : "header-menu-item", 
+                "title" : "Skills"
+            },
+            {
+                "href" : "#mywork", 
+                "className" : "header-menu-item", 
+                "title" : "My work"
+            },
+            {
+                "href" : "#testimonial", 
+                "className" : "header-menu-item", 
+                "title" : "Testimonial"
+            },
+            {
+                "href" : "#contact", 
+                "className" : "header-menu-item", 
+                "title" : "Contact"
+            }
+        ]
+    },
+    "content" : {
+        "home" : {
+            "img" : "/images/favicon.ico",
+            "alt" : "photo",
+            "title" : "Dream Coder",
+            "name" : "Judy",
+            "description" : "A software engineer currently residing in Seoul, South Korea",
+            "href" : "#contact",
+            "menuName" : "Contact Me"
+        }
+    },
+    "Footer" : {
+
+    }
+}

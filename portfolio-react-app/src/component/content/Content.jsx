@@ -1,9 +1,15 @@
+import Home from "./Home"
+import About from "./About"
+import Skills from "./Skills"
 
+export default function Content({data}) {
+    // console.log(`Content Data`, data?.skills);
 
-export default function Content() {
     return(
         <>
-            <h1>Content Component</h1>
+            <Home data={data?.home}/>
+            <About data={data?.about}/>
+            <Skills data={data?.skills}/>
         </>
     )
 }

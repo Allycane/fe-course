@@ -10,10 +10,10 @@ export default function Header({data}) {
         <>
             <header className="header">
                 <Logo 
-                    img="/images/favicon.ico"
+                    img={data?.logo?.img}
                     alt="header-logo"
                     style="header-logo-image"
-                    title="Judy" 
+                    title={data?.logo?.name} 
                 />
                 <MenuList menus={menus} style="header-menu open" />
 
