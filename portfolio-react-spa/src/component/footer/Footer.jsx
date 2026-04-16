@@ -5,7 +5,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
 export default function Footer({data}) {
-    console.log(`footer data ---`, data);
+    // console.log(`footer data ---`, data);
     return (
         <>
             <footer id="contact" className="footer">

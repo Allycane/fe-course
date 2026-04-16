@@ -2,7 +2,7 @@ import Home from "./Home"
 import About from "./About"
 import Skills from "./Skills"
 import Work from "./Work"
-import Testimonials from "../Testimonials"
+import Testimonials from "../../pages/Testimonials"
 import ArrowTop from "./ArrowTop"
 
 export default function Content({data}) {

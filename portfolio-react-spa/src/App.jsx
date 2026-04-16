@@ -2,8 +2,11 @@ import { useEffect, useState } from 'react';
 import { fetchData } from './util/fetch.js';
 import './App.css';
 import Header from './component/header/Header.jsx';
-import Content from './component/content/Content.jsx';
+// import Content from './component/content/Content.jsx';
 import Footer from './component/footer/Footer.jsx';
+
+// 라우팅 레이아웃 설정
+import { Outlet } from 'react-router-dom';
 
 export default function App() {
   const [data, setData] = useState({});
@@ -18,7 +21,7 @@ export default function App() {
   return (
     <>
       <Header data={data?.header}/>
-      <Content data={data?.content}/>
+      <Outlet context={data?.content}/>
       <Footer data={data?.footer}/>
     </>
   )

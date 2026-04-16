@@ -1,4 +1,4 @@
-import AvatarImage from './../commons/AvatarImage.jsx';
+import AvatarImage from '../commons/AvatarImage.jsx';
 
 export default function Logo({img, alt, style, title}) {
     return(
@@ -9,7 +9,7 @@ export default function Logo({img, alt, style, title}) {
                     alt={alt}
                     style={style}/>
 
-                <h1 className="header-logo-title">{title}</h1>
+                <h1 className="header-logo-title">{title}::SPA</h1>
             </div>
         </>
     )
