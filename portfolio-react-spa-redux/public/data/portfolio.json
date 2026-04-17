@@ -1,0 +1,199 @@
+{
+    "header" : {
+        "logo" : {
+            "img" : "/images/favicon.ico",
+            "name" : "Judy"
+        },
+        "menus" : [
+            {"href" : "/", "style":"header-menu-item", "name":"Home"},
+            {"href" : "/about", "style":"header-menu-item", "name":"About"},
+            {"href" : "/skills", "style":"header-menu-item", "name":"Skills"},
+            {"href" : "/mywork", "style":"header-menu-item", "name":"Work"},
+            {"href" : "/testimonial", "style":"header-menu-item", "name":"Testimonial"}
+        ]
+    },
+    "content" : {
+        "home" : {
+            "img" : "/images/favicon.ico",
+            "alt" : "photo",
+            "title" : "Dream Coder",
+            "name" : "Judy",
+            "description" : "A software engineer currently residing in Seoul, South Korea",
+            "href" : "#",
+            "menuName" : "Contact Me"
+        },
+
+        "about" : {
+            "lorem" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias optio impedit distinctio quidem vero nobis, doloremque aspernatur voluptate, mollitia sunt repellat, quasi dolorum at eos. Ullam corporis sequi voluptate alias?",
+
+            "majors" : [
+                {
+                    "icon":"html", 
+                    "title" : "Front-End", 
+                    "subject" : "HTML, CSS, JavaScript, TypeScript, React, WebAPIs"
+                },
+                {
+                    "icon":"mobile", 
+                    "title" : "Mobile", 
+                    "subject" : "Android Studio, React Native, iOS, Swift, Java, Kotlin"
+                },
+                {
+                    "icon":"server", 
+                    "title" : "Back-End", 
+                    "subject" : "Java, JavaScript, Go, Kotlin, Spring, Spring Boot"
+                }
+            ],
+            "jobs" : [
+                {
+                    "img":"/images/jobs/google.png", 
+                    "alt":"google", 
+                    "job" : "Google as Junior", 
+                    "period" : "2019 Oct ~ Until now"
+                },
+                {
+                    "img":"/images/jobs/samsung.png", 
+                    "alt":"samsung", 
+                    "job" : "Samsung as Junior Software Engineer", 
+                    "period" : "2010 Oct ~ 2019 Oct"
+                }
+            ]
+        },
+
+        "skills" : {
+            "coding" : [
+                {
+                    "title":"HTML", 
+                    "value":"98%", 
+                    "width":"98%"
+                },
+                {
+                    "title":"CSS", 
+                    "value":"90%", 
+                    "width":"90%"
+                },
+                {
+                    "title":"JavaScript", 
+                    "value":"90%", 
+                    "width":"90%"
+                },
+                {
+                    "title":"TypeScript", 
+                    "value":"80%", 
+                    "width":"80%"
+                },
+                {
+                    "title":"React", 
+                    "value":"79%", 
+                    "width":"79%"
+                },
+                {
+                    "title":"NodeJS", 
+                    "value":"68%", 
+                    "width":"68%"
+                }
+            ],
+            "tool" : [
+                "Visual Studio Code", 
+                "Intellij", 
+                "Android Studio Code", 
+                "MySQL workbench", 
+                "Eclipse"
+            ],
+            "etc" : [ "Git", "Scrum Master", "SVN" ]
+        },
+        "work": {
+            "categories" : [
+                {"category": "All", "count": "8"},
+                {"category": "Front-end", "count": "4"},
+                {"category": "Back-end", "count": "2"},
+                {"category": "Mobile", "count": "2"}
+            ],
+            "projects": [
+                {
+                    "img": "images/projects/project1.webp",
+                    "alt": "project-img",
+                    "title": "Project#1",
+                    "description": "Clone Coding with HTML, CSS"
+                },
+                {
+                    "img": "images/projects/project2.webp",
+                    "alt": "project-img",
+                    "title": "Project#2",
+                    "description": "Clone Coding with HTML, CSS"
+                },
+                {
+                    "img": "images/projects/project3.webp",
+                    "alt": "project-img",
+                    "title": "Project#3",
+                    "description": "Clone Coding with HTML, CSS"
+                },
+                {
+                    "img": "images/projects/project4.webp",
+                    "alt": "project-img",
+                    "title": "Project#4",
+                    "description": "Clone Coding with HTML, CSS"
+                },
+                {
+                    "img": "images/projects/project5.webp",
+                    "alt": "project-img",
+                    "title": "Project#5",
+                    "description": "Clone Coding with HTML, CSS"
+                },
+                {
+                    "img": "images/projects/project6.webp",
+                    "alt": "project-img",
+                    "title": "Project#6",
+                    "description": "Clone Coding with HTML, CSS"
+                },
+                {
+                    "img": "images/projects/project7.webp",
+                    "alt": "project-img",
+                    "title": "Project#7",
+                    "description": "Clone Coding with HTML, CSS"
+                },
+                {
+                    "img": "images/projects/project8.webp",
+                    "alt": "project-img",
+                    "title": "Project#8",
+                    "description": "Clone Coding with HTML, CSS"
+                }
+            ]
+        },
+        "testimonials" : [
+            {
+                "img" : "/images/testimonials/people1.webp", 
+                "alt": "people1", 
+                "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias optio impedit distinctio quidem vero nobis, doloremque aspernatur voluptate, mollitia sunt repellat, quasi dolorum at eos. Ullam corporis sequi voluptate alias?", 
+                "name" : "James Kim ", 
+                "company":"/ Google"
+            },
+            {
+                "img" : "/images/testimonials/people2.webp", 
+                "alt": "people2", 
+                "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias optio impedit distinctio quidem vero nobis, doloremque aspernatur voluptate, mollitia sunt repellat, quasi dolorum at eos. Ullam corporis sequi voluptate alias?", 
+                "name" : "Smith Park ", 
+                "company":"/ Samsung"
+            },
+            {
+                "img" : "/images/testimonials/people3.webp", 
+                "alt": "people3", 
+                "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias optio impedit distinctio quidem vero nobis, doloremque aspernatur voluptate, mollitia sunt repellat, quasi dolorum at eos. Ullam corporis sequi voluptate alias?", 
+                "name" : "Annie Lee ", 
+                "company":"/ Google"
+            }
+        ]
+    },
+    "footer" : {
+        "icons" : [
+            {
+                "href" : "#",
+                "icon" : "github"
+            },
+            {
+                "href" : "#",
+                "icon" : "linkedin"
+            }
+        ],
+        "description" : "Dream Software Engineer Judy's portfolio - All right reserved"
+    }
+}

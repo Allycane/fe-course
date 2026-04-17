@@ -5,7 +5,7 @@ import { useOutletContext } from "react-router-dom";
 
 export default function About() {
     // console.log(`About Data`, data)
-    const {data, like, setLike} = useOutletContext();
+    const {data} = useOutletContext();
 
     return(
         <>

@@ -4,7 +4,7 @@ import Testimonial from '../component/content/Testimonial';
 import { useOutletContext } from 'react-router-dom';
 
 export default function Testimonials() {
-    const {data, like, setLike} = useOutletContext();
+    const {data} = useOutletContext();
 
     return (
         <section id="testimonial" className="container">

@@ -5,7 +5,7 @@ import { useOutletContext } from "react-router-dom";
 export default function Skills() {
     const lorem = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime impedit in voluptas eum dolore, qui, obcaecati iste sapiente ut amet aliquid ratione voluptatum voluptatem, unde aperiam. Eveniet voluptatum iure assumenda?`;
 
-    const {data, like, setLike} = useOutletContext();
+    const {data} = useOutletContext();
 
     // console.log(`Skills Data`, data)
 
