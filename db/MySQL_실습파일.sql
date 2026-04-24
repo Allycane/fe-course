@@ -1018,6 +1018,372 @@ select * from employee where hire_date = (select max(hire_date) from employee);
 select min(retire_date) from employee;
 select * from employee where retire_date = (select min(retire_date) from employee);
 
+show databases;
+use hrdb2019;
+select database();
+show tables;
+
+
+
+-- 가장 많은 휴가를 사용한 사원이 속한 부서의 모든 사원들을 조회
+-- select emp_id from vacation order by duration desc limit 1;
+
+select d.dept_id 
+	from employee e inner join department d on e.dept_id = d.dept_id
+    where e.emp_id = (select emp_id from vacation order by duration desc limit 1);
+
+select *
+	from employee e
+    where e.dept_id = (select d.dept_id 
+	from employee e inner join department d on e.dept_id = d.dept_id
+    where e.emp_id = (select emp_id from vacation order by duration desc limit 1));
+
+select *
+	from employee
+    where dept_id = (select dept_id from employee
+						where emp_id = (select emp_id from vacation order by duration desc limit 1));
+
+
+select distinct e.dept_id
+	from employee e, vacation v
+		where e.emp_id = v.emp_id
+        and e.emp_id = (select emp_id from vacation order by duration desc limit 1);
+        
+select * from employee
+	where dept_id = (select distinct e.dept_id
+	from employee e, vacation v
+		where e.emp_id = v.emp_id
+        and e.emp_id = (select emp_id from vacation order by duration desc limit 1));
+
+
+-- [서브쿼리 : 다중행]
+-- IN, EXISTS ...
+-- '제3본부' 에 속한 모든 사원 정보 조회
+select *
+	from employee e inner join department d on e.dept_id = d.dept_id
+		inner join unit u on d.unit_id = u.unit_id
+	where u.unit_name = '제3본부';
+
+-- sub query
+select unit_id from unit where unit_name = '제3본부';
+
+select dept_id from department
+	where unit_id = (select unit_id from unit where unit_name = '제3본부');
+    -- ADV MKT 두 개의 결과가 나온다
+
+select * from employee
+	where dept_id in (select dept_id from department
+	where unit_id = (select unit_id from unit where unit_name = '제3본부'));
+    -- IN을 사용
+
+-- '제3본부'에 속한 모든 사원 휴가 사용 정보 조회
+select unit_id from unit where unit_name = '제3본부';
+
+select dept_id from department
+	where unit_id = (select unit_id from unit where unit_name = '제3본부');
+
+select * from vacation
+	where emp_id
+		in (select emp_id from employee
+				where dept_id
+					in (select dept_id from department
+						where unit_id = (select unit_id from unit where unit_name = '제3본부')));
+                        
+-- 휴가를 한번이라도 사용한 모든 사원 조회
+select * from employee e
+	where exists (select 1 from vacation v
+	where e.emp_id = v.emp_id);
+    -- 1을 반환하면 true, 0을 반환하면 false
+	-- count = 14
+select count(*) from (select distinct emp_id from vacation) T;
+	-- count = 14
+
+-- [인라인뷰]
+-- 메인쿼리의 테이블 자리에 들어가는 쿼리 형식
+-- [휴가를 사용한 사원기준]사원별 휴가 사용일수를 그룹핑하여 사원번호, 사원명, 입사일, 급여, 휴가 사용일수 조회
+-- 그룹함수로 계산해야 하는 사용일수와 유니크한 고유번호를 가진 사번은 같이 사용할 수 없다
+-- (1) 사원별 휴가 사용일수 그룹핑
+select emp_id, sum(duration) as duration from vacation group by emp_id;
+
+-- (2) employee 테이블과 inner join
+-- MySQL
+select e.emp_id, e.emp_name, e.hire_date, e.salary, T.duration as '휴가 사용일수'
+	from employee e 
+    inner join (select emp_id, sum(duration) as duration from vacation group by emp_id) T
+    on e.emp_id = T.emp_id;
+-- 뷰 : 임시로 만들어진 테이블을 의미
+
+-- ANSI-SQL
+select e.emp_id, e.emp_name, e.hire_date, e.salary, T.duration as '휴가 사용일수'
+	from employee e, (select emp_id, sum(duration) as duration from vacation group by emp_id) T
+    where e.emp_id = T.emp_id;
+
+
+-- [휴가를 사용하지 않은 사원 포함]사원별 휴가 사용일수를 그룹핑하여 사원번호, 사원명, 입사일, 급여, 휴가 사용일수 조회
+select e.emp_id, e.emp_name, e.hire_date, e.salary, ifnull(T.duration, 0) as '휴가 사용일수'
+	from employee e 
+    left outer join (select emp_id, sum(duration) as duration from vacation group by emp_id) T
+    on e.emp_id = T.emp_id
+    order by T.duration desc;
+
+-- '2015' ~ '2017'년도 입사한 사원들의 총 휴가 사용일수 조회
+select emp_id, sum(duration) from vacation group by emp_id;
+
+select e.emp_id, e.emp_name, e.hire_date, T.duration
+	from employee e 
+    inner join (select emp_id, sum(duration) as duration from vacation group by emp_id) T
+	on e.emp_id = T.emp_id
+    where left(hire_date, 4) between '2015' and '2017'
+    order by hire_date asc;
+
+-- ---------------------------------------------------------------
+-- 기간 내의 입사한 사원들 조회
+select * from employee where left(hire_date, 4) between '2015' and '2017';
+-- 사원 별 총 휴가일수 조회
+select emp_id, sum(duration) as duration from vacation
+	group by emp_id;
+-- 합
+select * 
+	from
+    (select * from employee where left(hire_date, 4) between '2015' and '2017') T1,
+    (select emp_id, sum(duration) as duration from vacation group by emp_id) T2
+    where T1.emp_id = T2.emp_id;
+-- 모든 사원들의 휴가 일수를 모두 포함
+select T1.emp_id, T1.emp_name, T1.hire_date, ifnull(T2.duration , 0)
+	from
+    (select * from employee where left(hire_date, 4) between '2015' and '2017') T1
+		left outer join
+    (select emp_id, sum(duration) as duration from vacation group by emp_id) T2
+		on T1.emp_id = T2.emp_id;
+
+-- 부서별 총 급여, 평균급여 조회
+select dept_id,
+		ifnull(sum(salary), 0) sum, 
+		floor(ifnull(avg(salary), 0)) avg
+        from employee group by dept_id;
+-- 부서 테이블과 조인하여 모든 부서의 총 급여, 평균 급여를 출력
+select ifnull(d.dept_id, '처리중') as dept_id,
+		d.dept_name,
+        ifnull(d.unit_id, '처리중') as unit_id,
+        d.start_date,
+        ifnull(T1.sum, 0) as sum,
+        ifnull(T1.avg, 0) as avg
+	from department d left outer join
+    (select dept_id,
+		ifnull(sum(salary), 0) sum, 
+		floor(ifnull(avg(salary), 0)) avg
+        from employee group by dept_id) T1
+		on d.dept_id = T1.dept_id;
+
+-- 3) 사원 테이블을 조인하여, 사원명, 급여, 부서아이디, 부서명, 총급여, 평균급여 조회
+select e.emp_name, ifnull(e.salary, 0), e.dept_id, T2.dept_name, T2.sum, T2.avg
+	from employee e left outer join
+    (select ifnull(d.dept_id, '처리중') as dept_id,
+		d.dept_name,
+        ifnull(d.unit_id, '처리중') as unit_id,
+        d.start_date,
+        ifnull(T1.sum, 0) as sum,
+        ifnull(T1.avg, 0) as avg
+	from department d left outer join
+    (select dept_id,
+		ifnull(sum(salary), 0) sum, 
+		floor(ifnull(avg(salary), 0)) avg
+        from employee group by dept_id) T1
+		on d.dept_id = T1.dept_id) T2
+        on e.dept_id = T2.dept_id;
+
+-- [스칼라 서브쿼리]
+-- 컬럼리스트 자리에 사용하는 서브쿼리 형식
+-- 정보시스템 부서의 사원정보 출력
+-- 정보시스템 부서의 총 급여, 평균 급여 함께 출력
+select emp_id, emp_name, dept_id, salary, 
+	(select sum(ifnull(salary, 0)) as sum from employee where dept_id = 'SYS') as sum, 
+    (select floor(avg(ifnull(salary, 0))) as sum from employee where dept_id = 'SYS') as avg
+	from employee
+    where dept_id = 'SYS';
+
+select sum(ifnull(salary, 0)) as sum from employee where dept_id = 'SYS';
+select floor(avg(ifnull(salary, 0))) as sum from employee where dept_id = 'SYS';
+
+
+/******************************************************************************
+	테이블 결과 합치기 : union, union all
+    형식 > 쿼리1 실행결과
+			union => 중복을 제거한다
+            쿼리2 실행결과 를 합친다
+	형식 > 쿼리1 실행결과
+			union all => 중복을 허용한다
+            쿼리2 실행결과 를 합친다
+	✨ 쿼리1, 쿼리2의 실행 컬럼의 타입과 이름이 동일해야 함
+*******************************************************************************/
+-- 영업(MKT), 정보시스템(SYS) 부서의 사원아이디, 급여, 부서아이디 조회
+-- union을 사용하여 실행결과 합치기
+select emp_id, emp_name, salary, dept_id from employee where dept_id = 'MKT'
+	union
+select emp_id, emp_name, salary, dept_id from employee where dept_id = 'SYS';
+-- 영업(MKT), 정보시스템(SYS) 부서의 사원아이디, 급여, 부서아이디 조회
+-- union all을 사용하여 실행결과 합치기
+select emp_id, emp_name, salary, dept_id from employee where dept_id = 'MKT'
+	union all
+select emp_id, emp_name, salary, dept_id from employee where dept_id = 'SYS'
+	union all
+select emp_id, emp_name, salary, dept_id from employee where dept_id = 'SYS';
+
+
+
+/***********************************************************************************
+	논리적인 테이블 : 뷰(View), SQL을 실행하여 생성된 결과를 가상테이블로 정의
+    형식 > CREATE VIEW [VIEW NAME]
+			AS [SQL정의]
+	삭제 > DROP VIEW [VIEW NAME]
+    ✨ VIEW 생성 시 권한을 할당 받아야 함!! => MySQL, Maria 기본 할당
+    VIEW는 생성할 수 있는 권한 (Permission)이 필요하다
+***************************************************************************/
+-- 시스템에 생성된 뷰 정보 확인
+-- information_schema.views
+select * from information_schema.views where table_schema = 'hrdb2019';
+
+-- 부서 총 급여가 30000 이상인 테이블의 뷰 정의
+create view sum_salary as 
+	select dept_id, ifnull(sum(salary), 0) as sum from employee group by dept_id having sum >= 30000;
+    
+-- VIEW = 논리적인 TABLE
+-- sum_salary 조회
+select dept_id from sum_salary;
+
+-- VIEW 삭제
+drop view sum_salary;
+select * from information_schema.views where table_schema = 'hrdb2019';
+    
+
+-- 사원 테이블을 조인하여, 사원명, 급여, 부서아이디, 부서명, 총급여, 평균급여 조회
+create view emp_dept_sum
+as
+	select e.emp_name, ifnull(e.salary, 0), e.dept_id, T2.dept_name, T2.sum, T2.avg
+		from employee e left outer join
+		(select ifnull(d.dept_id, '처리중') as dept_id,
+			d.dept_name,
+			ifnull(d.unit_id, '처리중') as unit_id,
+			d.start_date,
+			ifnull(T1.sum, 0) as sum,
+			ifnull(T1.avg, 0) as avg
+		from department d left outer join
+		(select dept_id,
+			ifnull(sum(salary), 0) sum, 
+			floor(ifnull(avg(salary), 0)) avg
+			from employee group by dept_id) T1
+			on d.dept_id = T1.dept_id) T2
+			on e.dept_id = T2.dept_id;
+
+-- view 확인
+select * from information_schema.views where table_schema = 'hrdb2019';
+
+-- emp_dept_sum 테이블에서 '홍길동' 사원의 정보를 조회
+select * from emp_dept_sum;
+select * from emp_dept_sum where emp_name = '홍길동';
+
+-- 사원별 전체 휴가 사용일수, 부서아이디, 부서명을 조회한 후, view로 생성
+-- 전체 사원을 대상, null값은 0으로 대체\
+
+-- 전체 휴가 사용일수
+select emp_id, ifnull(sum(duration), 0) as duration from vacation group by emp_id;
+-- 전체 사원을 대상으로 하여 두 쿼리를 outer join
+create view v_emp_dept
+as
+	select e.emp_id, e.emp_name, e.hire_date, e.salary, 
+		ifnull(T1.duration, 0) as duration, d.dept_id, d.dept_name, d.unit_id
+		from (select emp_id, sum(duration) as duration from vacation group by emp_id) T1
+			right outer join employee e 
+				on T1.emp_id = e.emp_id
+			left outer join department d
+				on e.dept_id = d.dept_id;
+select * from information_schema.views where table_schema = 'hrdb2019';
+
+
+-- '제3본부' 소속 부서의 사원들 휴가 사용일수를 조회
+select * 
+	from unit u inner join v_emp_dept v on u.unit_id = v.unit_id where u.unit_name = '제3본부';
+
+-- 휴가 사용일수가 15일 이상 사원들의 사원명, 부서아이디, 부서명, 본부아이디, 본부명 조회
+select v.emp_name, v.dept_id, v.dept_name, v.unit_id, u.unit_name, v.duration
+	from unit u inner join v_emp_dept v on u.unit_id = v.unit_id where v.duration >= 15 order by v.duration desc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
