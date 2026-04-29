@@ -1883,31 +1883,84 @@ delete from department2 where dept_id = 'ABC';
 select * from department2;
 select * from emp_const2;
 
+/***************************************************************
+	행 번호 : row_number() over() as '별칭'
+***************************************************************/
+use hrdb2019;
+select database();
+select row_number() over() as rno, emp_id, emp_name, salary, hire_date from employee where dept_id = 'sys';
+
+-- 정보시스템 부서의 사원들 연봉이 높은 순으로 사번, 사원명, 급여 조회
+select row_number() over() as rno, emp_id, emp_name, salary, hire_date from employee where dept_id = 'sys' order by salary desc;
+
+-- row_number와 같이 사용할 경우
+select row_number() over(order by salary desc) as rno, emp_id, emp_name, salary, hire_date from employee where dept_id = 'sys';
+
+-- 휴가를 많이 사용한 사원 순으로 조회, 행번호, 사원아이디, 사원명, 휴가일수(총합)
+select * from vacation;
+select row_number() over(order by sum(duration) desc) as rno, e.emp_id, e.emp_name, sum(duration)
+	from employee e inner join vacation v on e.emp_id = v.emp_id group by v.emp_id;
 
 
+/***************************************************************
+	석차 : rank() over() as '별칭'
+*****************************************************************/
+-- 사원의 급여가 높은 순으로 정렬
+select * from employee order by salary desc;
+select rank() over(order by salary desc) as 'srank', emp_id, emp_name, hire_date, salary from employee;
 
+-- 입사일이 빠른 순서대로 정렬
+select rank() over(order by hire_date) as 'hrank', emp_id, emp_name, hire_date, salary from employee;
 
+/*****************************************************************
+	트리거 생성 : 테이브르이 pk 정의 :: "문자" + "000" + "1"(auto_increment)
+*****************************************************************/
+-- trigger 생성 : 여러개의 sql문 포함
 
+create table member(
+	mid 		char(5) 		primary key, -- 'M0001'
+    name		varchar(5)		not null,
+    mdate		datetime
+);
+show tables;
+desc member;
+select * from information_schema.triggers where trigger_schema;
 
+/********************************************
+	mid에 들어가는 'M0001' 타입의 회원아이디 트리거
+*******************************************/
+/************************************************/
+delimiter $$
+create trigger trg_member_mid
+before insert on member
+for each row
+begin
+declare max_code int;  --  'M0001'
 
+-- 현재 저장된 값 중 가장 큰 값을 가져옴
+-- 현재 저장된 값 중 가장 큰 값을 가져와야 순서대로 숫자가 올라가는 형식으로 저장되기 때문 + 중복이 발생하지 않는다
+SELECT IFNULL(MAX(CAST(right(mid, 4) AS UNSIGNED)), 0) -- 정수형의 숫자로 변환 : UNSIGNED
+INTO max_code
+FROM member; 
 
+-- 'M0001' 형식으로 아이디 생성, LPAD(값, 크기, 채워지는 문자형식) : M0001
+SET NEW.mid = concat('M', LPAD((max_code+1), 4, '0')); -- LPAD() 0을 채워줌
 
+end $$
+delimiter ;
+/************************************************/
 
+desc member;
 
+insert into member(name, mdate) values('홍길동', now());
+insert into member(name, mdate) values('김유신', now());
+insert into member(name, mdate) values('정주교', now());
 
+select * from member;
 
-
-
-
-
-
-
-
-
-
-
-
-
+use hrdb2019;
+select database();
+select * from department;
 
 
 
