@@ -5,6 +5,7 @@ import Header from './component/header/Header.jsx';
 import Content from './component/content/Content.jsx';
 import Footer from './component/footer/Footer.jsx';
 
+// testing
 export default function App() {
   const [data, setData] = useState({});
   useEffect(()=>{
